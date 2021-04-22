@@ -2,9 +2,9 @@ import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
 import { List, Avatar, Space } from "antd";
 import { history, useParams } from "umi";
 import React from "react";
-import { question } from "components/dataType";
+import { blog, question } from "@components";
 interface props {
-  data?: question;
+  data?: blog;
   style?: React.CSSProperties;
 }
 interface IconText {
@@ -35,26 +35,21 @@ export default (props: props) => {
           text={data?.collections || 0}
           key="list-vertical-like-o"
         />,
-        <IconText
-          icon={<MessageOutlined />}
-          text={data?.replies || 0}
-          key="list-vertical-message"
-        />,
       ]}
     >
       <List.Item.Meta
-        avatar={<Avatar src={data?.avatar} />}
+        avatar={<Avatar src={data?.avatar}>{data?.name}</Avatar>}
         title={
           <a
             onClick={() => {
-              window.open(`${window.location.href}/${data?.id}`);
+              window.open(`${window.location.href}/detail/${data?.id}`);
             }}
           >
             {data?.title}
           </a>
         }
       />
-      {data?.content}
+      <div className={"item-content"}>{data?.content}</div>
     </List.Item>
   );
 };

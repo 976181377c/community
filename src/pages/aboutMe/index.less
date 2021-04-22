@@ -1,0 +1,69 @@
+.personal-center {
+  .personal-center-head-card {
+    position: relative;
+    height: 300px;
+    .head-card-img {
+      overflow: hidden;
+      height: 150px;
+      img {
+        width: 100%;
+      }
+    }
+    .ant-card-body {
+      padding: 0px;
+      margin: 0px;
+      height: 150px;
+      .ant-row {
+        height: 100%;
+        padding-top: 10px;
+        .head-card-avatar {
+          position: absolute;
+          padding: 5px;
+          background-color: white;
+          border-radius: 5px;
+          top: -50px;
+          left: 50px;
+        }
+        .head-card-name {
+          font-size: 20px;
+        }
+        .head-card-button {
+          position: absolute;
+          right: 15px;
+        }
+      }
+    }
+  }
+  .personal-center-card {
+    .center-card-item {
+      .center-card-title {
+        color: black;
+        font-weight: 600;
+        &:hover {
+          color: @blue;
+        }
+      }
+      .center-card-name {
+        display: flex;
+        justify-self: center;
+        > span {
+          margin-right: 10px;
+        }
+      }
+      .center-card-content {
+        margin: 10px 0px;
+      }
+      .center-card-time {
+        display: inline-block;
+      }
+    }
+    .center-card-albun {
+      .ant-image {
+        box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        margin-right: 24px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

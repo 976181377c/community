@@ -6,32 +6,37 @@ import { Link } from "umi";
 import { CloudOutlined } from "@ant-design/icons";
 import { history } from "umi";
 import { MyLogin, MyModel, _tools } from "@components";
-const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 export default (props: any) => {
-  const [stateSelectedKey, setStateSelectedKey] = useState<
-    string[] | undefined
-  >(undefined);
-
   const pageChange = (e: any) => {
     if (e.key === "portal") {
       history.push(`/`);
     } else {
-      history.push(`/${e.key}`);
+      if (e.key == "article") {
+        history.push(`/${e.key}/categories`);
+      } else {
+        history.push(`/${e.key}`);
+      }
     }
   };
-
-  useEffect(() => {
+  const getKey = () => {
     const url: string[] = props.location.pathname.split("/");
-    setStateSelectedKey([url[1] || `portal`]);
-  }, [props.location.pathname]);
+    return [url[1] || `portal`];
+  };
 
   const login = () => {
     try {
       const name = _tools.getName();
       const menu = (
         <Menu style={{ width: 140 }}>
+          <Menu.Item
+            onClick={() => {
+              history.push(`/aboutMe/dynamic`);
+            }}
+          >
+            个人中心
+          </Menu.Item>
           <Menu.Item
             onClick={() => {
               _tools.clearToken();
@@ -43,7 +48,13 @@ export default (props: any) => {
         </Menu>
       );
       return (
-        <Dropdown overlay={menu} placement="topCenter">
+        <Dropdown
+          overlay={menu}
+          getPopupContainer={() => {
+            return document.getElementById("index-login") || document.body;
+          }}
+          placement="topCenter"
+        >
           <Avatar>{name}</Avatar>
         </Dropdown>
       );
@@ -61,7 +72,7 @@ export default (props: any) => {
 
   return (
     <Layout>
-      <Affix offsetTop={0}>
+      <Affix style={{ zIndex: 100 }} offsetTop={0}>
         <Header className={"header-layout"}>
           <div className="logo">
             <CloudOutlined style={{ fontSize: 38 }} />
@@ -69,7 +80,7 @@ export default (props: any) => {
           <Menu
             theme="light"
             mode="horizontal"
-            selectedKeys={stateSelectedKey}
+            selectedKeys={getKey()}
             onClick={pageChange}
             style={{
               width: 300,
@@ -80,9 +91,12 @@ export default (props: any) => {
           >
             <Menu.Item key="portal">首页</Menu.Item>
             <Menu.Item key="AQ">问答</Menu.Item>
+            <Menu.Item key="blog">文章</Menu.Item>
             <Menu.Item key="article">文库</Menu.Item>
           </Menu>
-          <div className={"index-login"}>{login()}</div>
+          <div className={"index-login"} id={"index-login"}>
+            {login()}
+          </div>
         </Header>
       </Affix>
 

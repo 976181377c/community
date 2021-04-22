@@ -1,0 +1,41 @@
+@some: #40a9ff;
+.operation-box {
+  display: flex;
+  flex-wrap: wrap;
+  .operation-box-item {
+    margin: 10px 0px;
+    width: 50%;
+    text-align: center;
+    .operation-box-item-icon {
+      display: inline-block;
+      font-size: 20px;
+      padding: 5px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .operation-box-item-title {
+      display: block;
+      font-size: 14px;
+    }
+  }
+}
+.editor-animation {
+  overflow: hidden;
+  .fadeIn(0.5s);
+}
+@keyframes fadeIn {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 200px;
+  }
+}
+.fadeIn(@time:1s,@ease:ease-out,@fillmode:backwards) {
+  animation-name: fadeIn;
+  animation-duration: @time;
+  animation-timing-function: @ease;
+  animation-fill-mode: @fillmode;
+}

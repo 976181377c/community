@@ -13,7 +13,7 @@ interface props {
 export default (props: props) => {
   return (
     <div
-      id={"wangeditorHTML"}
+      className={"wangeditorHTML"}
       style={props.style}
       dangerouslySetInnerHTML={{ __html: props._html }}
     />

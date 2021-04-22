@@ -10,7 +10,8 @@ export default {
         resolve(xhr.response);
       };
       xhr.onerror = () => {
-        reject("错误");
+        // reject("错误");
+        throw "网络错误";
       };
       xhr.open("get", api + url, true);
       xhr.send(queryParams);
@@ -29,7 +30,9 @@ export default {
       xhr.open("post", api + `` + url, true);
       const data = new FormData();
       for (const key in queryParams) {
-        data.append(key, queryParams[key]);
+        if (!(queryParams[key] === undefined || queryParams[key] === null)) {
+          data.append(key, queryParams[key]);
+        }
       }
       xhr.send(data);
     });

@@ -23,9 +23,10 @@
     "@ant-design/icons": "^4.4.0",
     "@ant-design/pro-layout": "^6.5.0",
     "@umijs/preset-react": "1.x",
-    "base64url": "^3.0.1",
     "antd": "^4.11.2",
+    "base64url": "^3.0.1",
     "highlight.js": "^10.6.0",
+    "moment": "^2.29.1",
     "superagent": "^6.1.0",
     "umi": "^3.3.7",
     "wangeditor": "^4.6.6"

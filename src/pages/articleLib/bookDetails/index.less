@@ -1,0 +1,96 @@
+.bookDetail-page {
+  .bookDetail-cover-card {
+    margin-bottom: 10px;
+    .ant-card-body {
+      display: flex;
+      .bookDetail-cover-card-info {
+        position: relative;
+        display: inline-block;
+        width: calc(100% - 177px);
+        height: 240px;
+        padding-left: 10px;
+        & > span {
+          display: block;
+        }
+        .bookDetail-cover-card-title {
+          font-size: 24px;
+        }
+
+        .bookDetail-cover-card-author {
+          margin-top: 5px;
+          font-size: 16px;
+          color: darkgrey;
+        }
+        .bookDetail-cover-card-rate {
+          margin: 10px 0;
+          color: darkgray;
+          .ant-rate {
+            font-size: 16px;
+          }
+        }
+        .bookDetail-cover-card-tags {
+          .ant-tag {
+            font-size: 14px;
+            color: darkgray;
+          }
+        }
+        .buy-btu {
+          position: absolute;
+          bottom: 0px;
+          width: 100%;
+          // display: flex;
+          // justify-content: space-between;
+        }
+        .bookDetail-cover-card-price {
+          font-size: 20px;
+          font-weight: 700;
+          color: #0084ff;
+        }
+        .bookDetail-cover-card-btu {
+          position: absolute;
+          right: 5px;
+        }
+      }
+    }
+  }
+  .bookDetail-page-sidebar {
+    padding: 10px 10px 10px 20px;
+    // margin-bottom: 10px;
+    background-color: #fff;
+    ul {
+      padding: 0px;
+      color: #8590a6;
+      li {
+        margin: 15px 0px;
+        font-size: 16px;
+        list-style: none;
+        .menu-title {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .bookDetail-page-sidebar-info {
+    margin-top: 10px;
+    .ant-card-body {
+      display: flex;
+      justify-content: space-between;
+      &::after {
+        content: none;
+      }
+      &::before {
+        content: none;
+      }
+      .become-author {
+        color: darkgray;
+        padding-top: 5px;
+        font-size: 14px;
+      }
+      .name {
+        .name-avatar {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

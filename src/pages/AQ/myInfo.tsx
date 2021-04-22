@@ -10,7 +10,7 @@ export default () => {
         <span className={"value"}>0</span>
       </div>
       <div className={"info-item"}>
-        <span className={"title"}>被点赞</span>
+        <span className={"title"}>我的收藏</span>
         <span className={"value"}>0</span>
       </div>
       <div className={"info-item"}>
